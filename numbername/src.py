@@ -17,10 +17,11 @@ def to_number_name(num):
         return res_str
 
     assert type(num) == int, "must provide only integer as an argument"
+    assert num >= 0, "number must be non negative"
     num = str(num)
     assert len(num) < 121, "number must be less than or at max 0.9 x 10 ^ 121"
     names = [
-                {"1":"one","2":"two","3":"three","4":"four",
+                {"0":"zero", "1":"one","2":"two","3":"three","4":"four",
                     "5":"five","6":"six","7":"seven","8":"eight","9":"nine",
                     "10":"ten","11":"eleven","12":"twelve","13":"thirteen",
                     "14":"fourteen","15":"fifteen","16":"sixteen","17":"seventeen",
@@ -70,8 +71,8 @@ def to_number_name(num):
                 ts = xconcat(ts, place_value)
             s = xconcat(ts , s)
         elif l == 1:
-            if nump[0] != '0':
-                ts =  names[0][str(nump[0])]
+            #if nump[0] != '0':
+            ts =  names[0][str(nump[0])]
             if int(nump) != 0:
                 ts = xconcat(ts, place_value)
             s = xconcat(ts , s)
@@ -86,8 +87,9 @@ def to_comma_placed(num):
        :attr num - an integer
     """
     assert type(num) == int, "must provide only integer as an argument"
-
+    assert num >= 0, "number must be non-negative"
     num_str = str(num)
+    assert len(num_str) < 121, "number must be less than or at max 0.9 x 10 ^ 121"
     index = 1
     new_str = ''
     l = len(num_str)
@@ -100,7 +102,7 @@ def to_comma_placed(num):
     return new_str[::-1]
 
 if __name__ == "__main__":
-    no_list = [ 1000, 1000000, 10000, 1012, 101, 112, 121, 110, 99, 999, 120,
+    no_list = [ 0, 1000, 1000000, 10000, 1012, 101, 112, 121, 110, 99, 999, 120,
                 777, 88, 5000000, 70023,
                 1230001]
     for no in no_list:

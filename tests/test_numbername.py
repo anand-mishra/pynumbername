@@ -6,7 +6,7 @@ import numbername
 
 class TestNumberName(unittest.TestCase):
     def test_ones(self):
-        self.assertEqual(numbername.to_number_name(0), '') 
+        self.assertEqual(numbername.to_number_name(0), 'zero') 
         self.assertEqual(numbername.to_number_name(1), 'one') 
         self.assertEqual(numbername.to_number_name(2), 'two') 
         self.assertEqual(numbername.to_number_name(3), 'three') 

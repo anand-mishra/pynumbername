@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
     name = "numbername",
     packages = ["numbername"],
-    version = "0.0.1",
+    version = "0.0.2",
     description = "Converts integers to number name",
     author = "Anand Mishra",
     author_email = "akm.inbox@hotmail.com",
@@ -17,7 +17,6 @@ setup(
         "License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)",
         "Operating System :: OS Independent",
         "Topic :: Software Development :: Libraries :: Python Modules",
-        "Topic :: Text Processing :: Linguistic",
         ],
     
 )
