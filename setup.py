@@ -7,7 +7,7 @@ setup(
     author = "Anand Mishra",
     author_email = "akm.inbox@hotmail.com",
     url = "https://github.com/anand-mishra/pynumbername",
-    download_url = "",
+    download_url = "https://github.com/anand-mishra/pynumbername/raw/master/dist/numbername-0.0.1.tar.gz",
     keywords = ["encoding", "i18n", "xml"],
     classifiers = [
         "Programming Language :: Python",
