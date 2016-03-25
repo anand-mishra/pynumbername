@@ -2,7 +2,7 @@ import unittest
 
 import env
 
-from src import numbername
+import numbername
 
 class TestNumberName(unittest.TestCase):
     def test_ones(self):
