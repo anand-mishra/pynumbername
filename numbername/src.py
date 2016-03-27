@@ -16,10 +16,11 @@ def to_number_name(num):
                     res_str = s
         return res_str
 
-    assert type(num) == int, "must provide only integer as an argument"
+    assert type(num) == int or type(num) == long, "must provide only int or " \
+            "long as an argument"
     assert num >= 0, "number must be non negative"
+    assert num <= 10 ** 64, "number must be less than or at max 0.9 x 10 ^ 65"
     num = str(num)
-    assert len(num) < 121, "number must be less than or at max 0.9 x 10 ^ 121"
     names = [
                 {"0":"zero", "1":"one","2":"two","3":"three","4":"four",
                     "5":"five","6":"six","7":"seven","8":"eight","9":"nine",
@@ -86,10 +87,12 @@ def to_comma_placed(num):
        e.g. 1123 to 1,123
        :attr num - an integer
     """
-    assert type(num) == int, "must provide only integer as an argument"
+
+    assert type(num) == int or type(num) == long, "must provide only int or " \
+            "long as an argument"
     assert num >= 0, "number must be non-negative"
+    num <= 10 ** 64, "number must be less than or at max 0.1 x 10 ^ 65"
     num_str = str(num)
-    assert len(num_str) < 121, "number must be less than or at max 0.9 x 10 ^ 121"
     index = 1
     new_str = ''
     l = len(num_str)
@@ -106,4 +109,4 @@ if __name__ == "__main__":
                 777, 88, 5000000, 70023,
                 1230001]
     for no in no_list:
-        print "%s => %s => %s" % (no, to_comma_placed(no), to_number_name(no)) 
+        print("%s => %s => %s" % (no, to_comma_placed(no), to_number_name(no))) 

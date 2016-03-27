@@ -1,0 +1,12 @@
+language: python
+services:
+  - redis-server
+python:
+  - "3.4"
+  - "3.3"
+  - "3.2"
+  - "2.7"
+  - "2.6"
+  - "pypy"
+script: python -m unittest discover tests "test_*.py"
+
