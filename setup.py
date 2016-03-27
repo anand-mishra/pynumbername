@@ -1,16 +1,22 @@
+# -*- coding: utf-8 -*-
+
+"""setup file of numbername for distribution.
+"""
+
+
 from distutils.core import setup
+
 setup(
-    name = "numbername",
-    packages = ["numbername"],
-    version = "0.0.5",
-    description = "Converts integers to number name",
-    author = "Anand Mishra",
-    author_email = "akm.inbox@hotmail.com",
-    url = "https://github.com/anand-mishra/pynumbername",
-    download_url =
-"https://pypi.python.org/packages/source/n/numbername/numbername-0.0.5.tar.gz",
-    keywords = ["encoding", "i18n", "xml"],
-    classifiers = [
+    name="numbername",
+    packages=["numbername"],
+    version="0.0.6",
+    description="Converts integers to number name",
+    author="Anand Mishra",
+    author_email="akm.inbox@hotmail.com",
+    url="https://github.com/anand-mishra/pynumbername",
+    download_url="https://pypi.python.org/packages/source/n/numbername/numbername-0.0.6.tar.gz",
+    keywords=["encoding", "utf-8", "xml"],
+    classifiers=[
         "Programming Language :: Python",
         "Development Status :: 4 - Beta",
         "Environment :: Other Environment",
@@ -19,7 +25,7 @@ setup(
         "Operating System :: OS Independent",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
-     long_description = """\
+    long_description="""\
 Installation
 ============
 

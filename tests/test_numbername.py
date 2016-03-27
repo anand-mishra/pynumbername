@@ -1,11 +1,22 @@
+# -*- coding: utf-8 -*-
+
+"""module containing testcases to test numbername.
+"""
+
+
 import unittest
 
-import env
+from numbername import to_number_name, to_comma_placed
 
-from numbername import to_number_name
 
 class TestNumberName(unittest.TestCase):
+    """testcases for testing numbername.to_number_name method.
+    """
+
     def test_ones(self):
+        """tests the single digits
+        :return: boolean result of tests
+        """
         self.assertEqual(to_number_name(0), 'zero')
         self.assertEqual(to_number_name(1), 'one')
         self.assertEqual(to_number_name(2), 'two')
@@ -19,6 +30,9 @@ class TestNumberName(unittest.TestCase):
         self.assertEqual(to_number_name(9), 'nine')
 
     def test_tens(self):
+        """tests for two digit numbers
+        :return: boolean result of tests
+        """
         self.assertEqual(to_number_name(10), 'ten')
         self.assertEqual(to_number_name(11), 'eleven')
         self.assertEqual(to_number_name(12), 'twelve')
@@ -43,34 +57,88 @@ class TestNumberName(unittest.TestCase):
         self.assertEqual(to_number_name(99), 'ninety nine')
 
     def test_hundred(self):
+        """test for three digit numbers
+        :return: boolean result of tests
+        """
         self.assertEqual(to_number_name(100), 'one hundred')
         self.assertEqual(to_number_name(110), 'one hundred ten')
         self.assertEqual(to_number_name(112), 'one hundred twelve')
         self.assertEqual(to_number_name(999), 'nine hundred '
-            'ninety nine')
+                                              'ninety nine')
         self.assertEqual(to_number_name(501), 'five hundred one')
 
-
     def test_thousands(self):
+        """test for four digit numbers
+        :return: boolean result of tests
+        """
         self.assertEqual(to_number_name(1000), 'one thousand')
         self.assertEqual(to_number_name(9999), 'nine thousand '
-            'nine hundred ninety nine')
+                                               'nine hundred ninety nine')
         self.assertEqual(to_number_name(5000), 'five thousand')
         self.assertEqual(to_number_name(5001), 'five thousand one')
         self.assertEqual(to_number_name(5050), 'five thousand fifty')
         self.assertEqual(to_number_name(5011), 'five thousand eleven')
 
     def test_mixed(self):
+        """test for mixed combinations of numbers
+        :return: boolean result of tests
+        """
         self.assertEqual(to_number_name(5000000), 'five million')
         self.assertEqual(to_number_name(70023), 'seventy thousand '
-            'twenty three')
+                                                'twenty three')
         self.assertEqual(to_number_name(1230001), 'one million '
-            'two hundred thirty thousand one')
+                                                  'two hundred thirty thousand one')
         self.assertEqual(to_number_name(1231001), 'one million '
-            'two hundred thirty one thousand one')
+                                                  'two hundred thirty one thousand one')
         self.assertEqual(to_number_name(10 ** 63), 'one vigintillion')
 
+    def test_bad_inputs(self):
+        """tests for input validations
+        :return: boolean result of tests
+        """
+        self.assertRaisesRegexp(AssertionError, 'number must be non negative',
+                                to_number_name, -1)
+        self.assertRaisesRegexp(AssertionError, 'number must be less than',
+                                to_number_name, (1000 ** 63))
+
+
+class TestCommaPlacement(unittest.TestCase):
+    """testcases for testing numbername.to_comma_placed
+
+    """
+
+    def test_numbers(self):
+        """tests for combinations of integers
+        :return: boolean result of tests
+        """
+        self.assertEqual(to_comma_placed(1), '1')
+        self.assertEqual(to_comma_placed(10), '10')
+        self.assertEqual(to_comma_placed(100), '100')
+        self.assertEqual(to_comma_placed(1000), '1,000')
+        self.assertEqual(to_comma_placed(10000), '10,000')
+        self.assertEqual(to_comma_placed(100000), '100,000')
+        self.assertEqual(to_comma_placed(1000000), '1,000,000')
+        self.assertEqual(to_comma_placed(10000000), '10,000,000')
+
+    def test_bad_inputs(self):
+        """tests for input validations
+        :return: boolean result of tests
+        """
+        self.assertRaisesRegexp(AssertionError, 'number must be non negative',
+                                to_number_name, -1)
+        self.assertRaisesRegexp(AssertionError, 'number must be less than',
+                                to_number_name, (1000 ** 63))
+
+
+def main():
+    """main method"""
+
+    suite = unittest.TestSuite()
+    suite_numbername = unittest.TestLoader().loadTestsFromTestCase(TestNumberName)
+    suite_comma = unittest.TestLoader().loadTestsFromTestCase(TestCommaPlacement)
+    suite.addTest(suite_numbername)
+    suite.addTest(suite_comma)
+    unittest.TextTestRunner(verbosity=2).run(suite)
 
 if __name__ == "__main__":
-    suite = unittest.TestLoader().loadTestsFromTestCase(TestNumberName)
-    unittest.TextTestRunner(verbosity=2).run(suite)
+    main()
