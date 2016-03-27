@@ -3,6 +3,8 @@ Purpose
 
 Implement an iterative method to convert integers to number names.
 
+[![Build Status](https://travis-ci.org/anand-mishra/pynumbername.svg?branch=master)](https://travis-ci.org/anand-mishra/pynumbername)
+
 Usage
 =====
 
