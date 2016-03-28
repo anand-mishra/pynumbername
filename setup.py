@@ -8,7 +8,7 @@ from distutils.core import setup
 
 setup(
     name="numbername",
-    packages=["numbername"],
+    packages=["numbername","tests"],
     version="0.0.6",
     description="Converts integers to number name",
     author="Anand Mishra",
