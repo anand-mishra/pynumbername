@@ -10,14 +10,14 @@ Installation
 
 1. Using `pip`
 
-    pip install numbername
+        pip install numbername
 
 2. Using source
 
-    wget https://pypi.python.org/packages/source/n/numbername/numbername-0.0.6.tar.gz
-    tar xvf numbername-0.0.6.tar.gz
-    cd numbername-0.0.6
-    python setup.py install
+        wget https://pypi.python.org/packages/source/n/numbername/numbername-0.0.6.tar.gz
+        tar xvf numbername-0.0.6.tar.gz
+        cd numbername-0.0.6
+        python setup.py install
 
 Usage
 =====
@@ -40,6 +40,14 @@ Testing
 Python unit tests can be run as
 
     python -m unittest discover tests
+
+
+Python Platforms Supported
+==========================
+
+- Python 2.7
+- Python 3.x
+- PyPy
     
 
 TODO
